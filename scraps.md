@@ -3,7 +3,7 @@
 <img src="saapas.png" align="right">
 
 Example project for Cljs/Om using Boot instead of Lein.
-Inspired by [saspas](https://github.com/deraen/saapas).
+Inspired by [chestnut](https://github.com/plexus/chestnut).
 
 For now, this is a example project instead of a lein template.
 
