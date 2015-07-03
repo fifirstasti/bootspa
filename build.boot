@@ -2,7 +2,7 @@
   :source-paths #{"src/cljs" "src/less"}
   :resource-paths #{"src/clj" "src/cljc"}
   :dependencies '[[adzerk/boot-cljs       "0.0-3269-2" :scope "test"]
-                  [adzerk/boot-cljs-repl  "0.2.0-SNAPSHOT" :scope "test"]
+                  [adzerk/boot-cljs-repl  "0.1.9" :scope "test"]
                   [adzerk/boot-reload     "0.3.0"      :scope "test"]
                   [deraen/boot-less       "0.4.0"      :scope "test"]
 
@@ -25,18 +25,18 @@
 
 (require
   '[adzerk.boot-cljs      :refer :all]
-  ; '[adzerk.boot-cljs-repl :refer :all]
+  '[adzerk.boot-cljs-repl :refer :all]
   '[adzerk.boot-reload    :refer :all]
   '[deraen.boot-less      :refer :all]
-  '[saapas.boot           :refer :all])
+  '[bootspa.boot           :refer :all])
 
 (task-options!
-  pom {:project 'saapas
+  pom {:project 'bootspa
        :version "0.1.0-SNAPSHOT"
        :description "Application template for Cljs/Om with live reloading, using Boot."
        :license {"The MIT License (MIT)" "http://opensource.org/licenses/mit-license.php"}}
-  aot {:namespace #{'saapas.main}}
-  jar {:main 'saapas.main}
+  aot {:namespace #{'boorspa.main}}
+  jar {:main 'bootspa.main}
   cljs {:source-map true}
   less {:source-map true})
 
@@ -48,11 +48,11 @@
   (comp
     (watch)
     ; Should be before cljs so the generated code is picked up
-    (reload :on-jsload 'saapas.core/start!)
+    (reload :on-jsload 'bootspa.core/start!)
     (less)
     ; This starts a normal repls with piggieback middleware
-    ; (cljs-repl)
-    (repl :server true)
+    (cljs-repl)
+    ; (repl :server true)
     (cljs :optimizations :none)
     (if speak (boot.task.built-in/speak) identity)
     (start-app :port port :reload clj-reload)))
