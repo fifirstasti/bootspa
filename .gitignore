@@ -11,3 +11,6 @@ pom.xml.asc
 /.repl
 .nrepl-history
 /.boot
+
+bootspa.iml
+.idea/
