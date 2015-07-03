@@ -1,0 +1,2 @@
+{:require [bootspa.core]
+ :init-fns [bootspa.core/start!]}
